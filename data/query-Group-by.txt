@@ -1,0 +1,31 @@
+DB-UNIVERSITY MySQUL GROUP BY
+
+1. Contare quanti iscritti ci sono stati ogni anno
+
+SELECT COUNT(*) AS `num_annual_subscription`, YEAR(`enrolment_date`) AS `year`
+FROM `students`
+GROUP BY `year`;
+
+
+2. Contare gli insegnanti che hanno l'ufficio nello stesso edificio
+
+SELECT COUNT(*) AS `num_teachers`, `office_address` AS `indirizzo`
+FROM `teachers`
+GROUP BY `indirizzo`;
+
+
+3. Calcolare la media dei voti di ogni appello d'esame
+(ho arrotondato il dato, qui potrei utilizzare anche Floor o Ceil)
+
+SELECT ROUND(AVG(`exam_student`.`vote`)) AS `average_votes`, `exam_id`
+FROM `exam_student`
+GROUP BY `exam_id`
+
+
+4. Contare quanti corsi di laurea ci sono per ogni dipartimento
+
+(potendo usare sia l'id che l'* qui uso l'id)
+
+SELECT COUNT(`id`) AS `num_degrees_corses`, `degrees`.`department_id`
+FROM `degrees`
+GROUP BY `degrees`.`department_id`;
