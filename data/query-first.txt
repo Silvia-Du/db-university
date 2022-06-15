@@ -1,0 +1,55 @@
+DB-UNIVERSITY MySQUL
+
+1-
+SELECT *
+FROM `students`
+WHERE `date_of_birth` 
+BETWEEN '1990-01-01' AND '1990-12-31';
+
+oppure
+
+SELECT *
+FROM `students`
+WHERE `date_of_birth` 
+BETWEEN YEAR(`date_of_birth`) = 1990;
+
+2-
+SELECT *
+FROM `courses`
+WHERE `cfu` > 10;
+
+3-
+SELECT *
+FROM `students`
+WHERE `date_of_birth` < '1991-06-14';
+
+oppure
+
+SELECT * 
+FROM `students` 
+WHERE TIMESTAMPDIFF(YEAR, `date_of_birth`, CURRENT_DATE()) > 30;
+
+4-
+SELECT *
+FROM `courses`
+WHERE `period` = 'I semestre' AND `year` = 1;
+
+5-
+SELECT *
+FROM `exams`
+WHERE `hour` > '14:00:00' AND `date` = '2020-06-20';
+
+6-
+SELECT *
+FROM `degrees`
+WHERE `level` = 'magistrale';
+
+7-
+SELECT COUNT(`id`) AS `tot_departments`
+FROM `departments`;
+
+8-
+SELECT COUNT(`id`) AS `teacher_with_telephon`
+FROM `teachers`
+WHERE `phone` <> NULL;
+
