@@ -26,6 +26,6 @@ GROUP BY `exam_id`
 
 (potendo usare sia l'id che l'* qui uso l'id)
 
-SELECT COUNT(`id`) AS `num_degrees_corses`, `degrees`.`department_id`
+SELECT COUNT(`id`) AS `num_degrees_corses`, `department_id`
 FROM `degrees`
-GROUP BY `degrees`.`department_id`;
+GROUP BY `department_id`;
